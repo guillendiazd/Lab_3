@@ -6,12 +6,17 @@ import javax.swing.JOptionPane;
 public class David_Guillen_Lab3 {
     public static void main(String[] args) {
         ArrayList<Jugador> jugadores = new ArrayList();
+        ArrayList<Equipo> equipos = new ArrayList();
         String opcion = "";
-        while(!opcion.equalsIgnoreCase("d")){
+        while(!opcion.equalsIgnoreCase("f")){
             opcion = JOptionPane.showInputDialog("Ingrese Opcion\n"
                     + "a). Crear Jugador\n"
                     + "b). Modificar Jugador\n"
-                    + "c). Eliminar Jugador\n");
+                    + "c). Eliminar Jugador\n"
+                    + "d). Listar Jugador\n"
+                    + "e). Crear Equipo\n"
+                    + "f). Listar Equipo\n"
+                    + "g). Hacer Compras\n");
             if (opcion.equalsIgnoreCase("a")) {
                 String op_jugador = "";
                 while(!op_jugador.equalsIgnoreCase("e")){
@@ -126,13 +131,14 @@ public class David_Guillen_Lab3 {
             if (opcion.equalsIgnoreCase("b")) {
                 int pos;
                 for (Jugador t : jugadores) {
-                    System.out.println(jugadores.indexOf(t)+". "+ t);
+                    System.out.println(jugadores.indexOf(t) + ". " + t);
                 }
                 pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Jugador a Modificar"));
                 if (jugadores.get(pos) instanceof Delantero) {
-                    String nombre, apellido, estado="libre", pais_naci, pie_pre, equipo="";
+                    String nombre, apellido, estado="libre", pais_naci, pie_pre, equipo="", op_mod="";
                         int edad, numero=0;
                         double precio, definicion, altura, velocidad, prom_gol_part;
+                        
                         nombre = JOptionPane.showInputDialog("Ingrese Nombre");
                         apellido = JOptionPane.showInputDialog("Ingrese Apellido");
                         edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Edad"));
@@ -234,10 +240,46 @@ public class David_Guillen_Lab3 {
             if (opcion.equalsIgnoreCase("c")) {
                 int pos;
                 for (Jugador t : jugadores) {
-                    System.out.println(jugadores.indexOf(t)+". "+ t);
+                    System.out.println(jugadores.indexOf(t) + ". " + t);
                 }
                 pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Jugador a Eliminar"));
                 jugadores.remove(pos);
+            }
+            if (opcion.equalsIgnoreCase("d")) {
+                for (Jugador t : jugadores) {
+                    System.out.println(jugadores.indexOf(t) + ". " + t);
+                }
+            }
+            if (opcion.equalsIgnoreCase("e")) {
+                String nombre, ciudad;
+                int palmares;
+                double presupuesto;
+                nombre = JOptionPane.showInputDialog("Ingrese Nombre");
+                palmares = Integer.parseInt("Ingrese Palmares");
+                ciudad = JOptionPane.showInputDialog("Ingrese Ciudad");
+                presupuesto = Double.parseDouble("Ingrese Presupuesto");
+                equipos.add(new Equipo(nombre, palmares, ciudad, presupuesto));
+            }
+            if (opcion.equalsIgnoreCase("f")) {
+                for (Equipo t : equipos) {
+                    System.out.println(equipos.indexOf(t) + ". " + t);
+                }
+            }
+            if (opcion.equalsIgnoreCase("g")) {
+                ArrayList<Jugador> juga_dis = new ArrayList();
+                String op_compra="";
+                juga_dis = jugadores;
+                int pos;
+                for (Equipo t : equipos) {
+                    System.out.println(equipos.indexOf(t) + ". " + t);
+                }
+                pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo que hara la Compra"));
+                while(!op_compra.equalsIgnoreCase("no")){
+                    
+                    op_compra = JOptionPane.showInputDialog("Desea Seguir Comprando?\n"
+                            + "si\n"
+                            + "no\n");
+                }
             }
         }
     }
