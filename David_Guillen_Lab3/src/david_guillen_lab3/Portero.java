@@ -7,7 +7,7 @@ public class Portero extends Jugador{
         super();
     }
 
-    public Portero(double nivel_juego_aero, double nivel_juego_pies, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+    public Portero(double nivel_juego_aero, double nivel_juego_pies, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, double precio, String equipo) {
         super(nombre, apellido, edad, estado, pais_naci, pie_pre, numero, precio, equipo);
         this.nivel_juego_aero = nivel_juego_aero;
         this.nivel_juego_pies = nivel_juego_pies;

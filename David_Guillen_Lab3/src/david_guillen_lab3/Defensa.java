@@ -9,7 +9,7 @@ public class Defensa extends Jugador{
         super();
     }
 
-    public Defensa(double nivel_agre, double altura, double peso, double velocidad, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+    public Defensa(double nivel_agre, double altura, double peso, double velocidad, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, double precio, String equipo) {
         super(nombre, apellido, edad, estado, pais_naci, pie_pre, numero, precio, equipo);
         this.nivel_agre = nivel_agre;
         this.altura = altura;

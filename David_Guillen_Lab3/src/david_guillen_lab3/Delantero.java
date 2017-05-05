@@ -9,7 +9,7 @@ public class Delantero extends Jugador{
         super();
     }
 
-    public Delantero(double definicion, double altura, double velocidad, double prom_gol_part, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+    public Delantero(double definicion, double altura, double velocidad, double prom_gol_part, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, double precio, String equipo) {
         super(nombre, apellido, edad, estado, pais_naci, pie_pre, numero, precio, equipo);
         this.definicion = definicion;
         this.altura = altura;

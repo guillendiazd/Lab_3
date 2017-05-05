@@ -8,7 +8,7 @@ public class Medio extends Jugador{
         super();
     }
 
-    public Medio(double nivel_crea, double nivel_dom, double prom_asis_part, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+    public Medio(double nivel_crea, double nivel_dom, double prom_asis_part, String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, double precio, String equipo) {
         super(nombre, apellido, edad, estado, pais_naci, pie_pre, numero, precio, equipo);
         this.nivel_crea = nivel_crea;
         this.nivel_dom = nivel_dom;

@@ -7,13 +7,13 @@ public class Jugador {
     private String pais_naci;
     private String pie_pre;
     private int numero;
-    private int precio;
+    private double precio;
     private String equipo;
 
     public Jugador() {
     }
 
-    public Jugador(String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+    public Jugador(String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, double precio, String equipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -81,7 +81,7 @@ public class Jugador {
         this.numero = numero;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
