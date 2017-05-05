@@ -99,7 +99,7 @@ public class Jugador {
 
     @Override
     public String toString() {
-        return "Jugador{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", estado=" + estado + ", pais_naci=" + pais_naci + ", pie_pre=" + pie_pre + ", numero=" + numero + ", precio=" + precio + ", equipo=" + equipo + '}';
+        return "-------------\n" + "nombre:" + nombre + "\n" + "apellido:" + apellido + "\n" + "edad:" + edad + "\n" + "estado:" + estado + "\n" + "pais_naci:" + pais_naci + "\n" + "pie_pre" + pie_pre + "\n" + "numero:" + numero + "\n" + "precio:" + precio + "\n" + "equipo:" + equipo + "\n";
     }
     
 }

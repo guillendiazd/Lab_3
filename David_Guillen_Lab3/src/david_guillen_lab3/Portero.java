@@ -31,7 +31,7 @@ public class Portero extends Jugador{
 
     @Override
     public String toString() {
-        return super.toString() + "Portero{" + "nivel_juego_aero=" + nivel_juego_aero + ", nivel_juego_pies=" + nivel_juego_pies + '}';
+        return super.toString() + "Portero\n" + "nivel_juego_aero:" + nivel_juego_aero + "\n" + "nivel_juego_pies:" + nivel_juego_pies + "\n" + "----------\n";
     }
     
 }

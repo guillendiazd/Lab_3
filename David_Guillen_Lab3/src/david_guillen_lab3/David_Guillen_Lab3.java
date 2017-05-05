@@ -7,16 +7,22 @@ public class David_Guillen_Lab3 {
     public static void main(String[] args) {
         ArrayList<Jugador> jugadores = new ArrayList();
         ArrayList<Equipo> equipos = new ArrayList();
+        ArrayList<Jugador> juga_dis = new ArrayList();
+        ArrayList<Integer> numeros = new ArrayList();
         String opcion = "";
         while(!opcion.equalsIgnoreCase("f")){
+            
             opcion = JOptionPane.showInputDialog("Ingrese Opcion\n"
                     + "a). Crear Jugador\n"
                     + "b). Modificar Jugador\n"
                     + "c). Eliminar Jugador\n"
                     + "d). Listar Jugador\n"
                     + "e). Crear Equipo\n"
-                    + "f). Listar Equipo\n"
-                    + "g). Hacer Compras\n");
+                    + "f). Modificar Equipo\n"
+                    + "g). Eliminar Equipo\n"
+                    + "h). Listar Equipo\n"
+                    + "i). Hacer Compras\n"
+                    + "j). Organizar Equipos\n");
             if (opcion.equalsIgnoreCase("a")) {
                 String op_jugador = "";
                 while(!op_jugador.equalsIgnoreCase("e")){
@@ -127,6 +133,7 @@ public class David_Guillen_Lab3 {
                         }
                     }
                 }
+                juga_dis = jugadores;
             }
             if (opcion.equalsIgnoreCase("b")) {
                 int pos;
@@ -255,28 +262,131 @@ public class David_Guillen_Lab3 {
                 int palmares;
                 double presupuesto;
                 nombre = JOptionPane.showInputDialog("Ingrese Nombre");
-                palmares = Integer.parseInt("Ingrese Palmares");
+                palmares = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Palmares"));
                 ciudad = JOptionPane.showInputDialog("Ingrese Ciudad");
-                presupuesto = Double.parseDouble("Ingrese Presupuesto");
+                presupuesto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese Presupuesto"));
                 equipos.add(new Equipo(nombre, palmares, ciudad, presupuesto));
             }
             if (opcion.equalsIgnoreCase("f")) {
-                for (Equipo t : equipos) {
-                    System.out.println(equipos.indexOf(t) + ". " + t);
-                }
-            }
-            if (opcion.equalsIgnoreCase("g")) {
-                ArrayList<Jugador> juga_dis = new ArrayList();
-                String op_compra="";
-                juga_dis = jugadores;
+                String nombre, ciudad;
+                int palmares;
+                double presupuesto;
+                String op_mod_e="";
                 int pos;
                 for (Equipo t : equipos) {
                     System.out.println(equipos.indexOf(t) + ". " + t);
                 }
-                pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo que hara la Compra"));
+                pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo a Modificar"));
+                while(!op_mod_e.equalsIgnoreCase("")){
+                    op_mod_e= JOptionPane.showInputDialog("Que Desea Modificar\n"
+                            + "a). Nombre\n"
+                            + "b). Palmares\n"
+                            + "c). Ciudad\n"
+                            + "d). Presupuesto\n"
+                            + "e). Salir\n");
+                    if (op_mod_e.equalsIgnoreCase("a")) {
+                        nombre = JOptionPane.showInputDialog("Ingrese Nombre");
+                        equipos.get(pos).setNombre(nombre);
+                    }
+                    if (op_mod_e.equalsIgnoreCase("b")) {
+                        palmares = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Palmares"));
+                        equipos.get(pos).setPalmares(palmares);
+                    }
+                    if (op_mod_e.equalsIgnoreCase("c")) {
+                        ciudad = JOptionPane.showInputDialog("Ingrese Ciudad");
+                        equipos.get(pos).setCiudad(ciudad);
+                    }
+                    if (op_mod_e.equalsIgnoreCase("d")) {
+                        presupuesto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese Presupuesto"));
+                        equipos.get(pos).setPresupuesto(presupuesto);
+                    }
+                }
+            }
+            if (opcion.equalsIgnoreCase("g")) {
+                int pos;
+                for (Equipo t : equipos) {
+                    System.out.println(equipos.indexOf(t) + ". " + t);
+                }
+                pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo a Eliminar"));
+                equipos.remove(pos);
+            }
+            if (opcion.equalsIgnoreCase("h")) {
+                for (Equipo t : equipos) {
+                    System.out.println(equipos.indexOf(t) + ". " + t);
+                }
+            }
+            if (opcion.equalsIgnoreCase("i")) {
+                numeros.add(0);
+                String op_compra="";
+                int numero=0;
                 while(!op_compra.equalsIgnoreCase("no")){
-                    
+                    int pos=0, pos_j=0;
+                    double fac=0;
+                    for (Equipo t : equipos) {
+                        System.out.println(equipos.indexOf(t) + ". " + t);
+                    }
+                    pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo que hara la Compra"));
+                    for (Jugador t : juga_dis) {
+                        System.out.println(juga_dis.indexOf(t) + ". " + t);
+                    }
+                    pos_j = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Jugador que desea comprar"));
+                    numero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Numero que tendra el jugador"));
+                    for (Integer t : numeros) {
+                        if (numero == t) {
+                            JOptionPane.showInputDialog("Numero ya Existe");
+                        }else{
+                            numeros.add(numero);
+                            juga_dis.get(pos_j).setNumero(0);
+                        }
+                    }
+                    equipos.get(pos).getJugadores().add(juga_dis.get(pos_j));
+                    fac = equipos.get(pos).getPresupuesto() - juga_dis.get(pos_j).getPrecio();
+                    equipos.get(pos).setPresupuesto(fac);
+                    juga_dis.get(pos_j).setEquipo(equipos.get(pos).getNombre());
+                    juga_dis.remove(pos_j);
                     op_compra = JOptionPane.showInputDialog("Desea Seguir Comprando?\n"
+                            + "si\n"
+                            + "no\n");
+                }
+            }
+            if (opcion.equalsIgnoreCase("j")) {
+                ArrayList tem = new ArrayList();
+                ArrayList titu = new ArrayList();
+                ArrayList supe = new ArrayList();
+                int pos, can_def, can_med, can_del, cont_def=0, cont_med=0, cont_del=0;
+                String op_organizar="";
+                for (Equipo t : equipos) {
+                        System.out.println(equipos.indexOf(t) + ". " + t);
+                    }
+                pos = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Equipo a Organizar"));
+                can_def = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Defensas"));
+                can_med = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Medios"));
+                can_del = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Delanteros"));
+                if (can_def + can_med + can_del != 11) {
+                    JOptionPane.showMessageDialog(null, "La alineacion es incorrecta");
+                }
+                tem = equipos.get(pos).getJugadores();
+                for (Object t : tem) {
+                    if (t instanceof Delantero) {
+                        cont_del++;
+                    }
+                    if (t instanceof Medio) {
+                        cont_med++;
+                    }
+                    if (t instanceof Defensa) {
+                        cont_def++;
+                    }
+                }
+                if (can_def >= cont_def || can_med >= cont_med || can_def >= cont_def) {
+                    JOptionPane.showMessageDialog(null, "La Alineacion no se puede reaizar por falta de jugadores");
+                }
+                
+                while(!op_organizar.equalsIgnoreCase("no")){
+                    for (Object t : tem) {
+                    System.out.println(tem.indexOf(t) + ". " + t);
+                    }
+                    
+                    op_organizar = JOptionPane.showInputDialog("Desea Seguir\n"
                             + "si\n"
                             + "no\n");
                 }
