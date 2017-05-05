@@ -1,15 +1,105 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package david_guillen_lab3;
-
-/**
- * 
- * @author Sammy Guergachi <sguergachi at gmail.com>
- */
 public class Jugador {
+    private String nombre;
+    private String apellido;
+    private int edad;
+    private String estado;
+    private String pais_naci;
+    private String pie_pre;
+    private int numero;
+    private int precio;
+    private String equipo;
 
+    public Jugador() {
+    }
+
+    public Jugador(String nombre, String apellido, int edad, String estado, String pais_naci, String pie_pre, int numero, int precio, String equipo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.estado = estado;
+        this.pais_naci = pais_naci;
+        this.pie_pre = pie_pre;
+        this.numero = numero;
+        this.precio = precio;
+        this.equipo = equipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getPais_naci() {
+        return pais_naci;
+    }
+
+    public void setPais_naci(String pais_naci) {
+        this.pais_naci = pais_naci;
+    }
+
+    public String getPie_pre() {
+        return pie_pre;
+    }
+
+    public void setPie_pre(String pie_pre) {
+        this.pie_pre = pie_pre;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public int getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
+
+    public String getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(String equipo) {
+        this.equipo = equipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Jugador{" + "nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", estado=" + estado + ", pais_naci=" + pais_naci + ", pie_pre=" + pie_pre + ", numero=" + numero + ", precio=" + precio + ", equipo=" + equipo + '}';
+    }
+    
 }
